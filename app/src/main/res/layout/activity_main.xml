@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#04293A"
+    android:backgroundTint="#04293A"
+    android:orientation="vertical"
+    tools:context=".ActivityJeu">
+
+    <LinearLayout
+        android:id="@+id/infoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.65"
+        android:background="#04293A"
+        android:backgroundTint="#04293A"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cardsLeft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Cards Left: 97"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#ECB365"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Chronometer
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:countDown="false"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:textColor="#ECB365"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/Score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="monospace"
+            android:gravity="center"
+            android:text="Score: 69"
+            android:textColor="#ECB365"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.6"
+        android:background="#041C32"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonMenu"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="#F8E6BA"
+            android:backgroundTint="#EFCE7C"
+            android:text="Menu"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:iconTint="#E14F4F" />
+
+        <Button
+            android:id="@+id/buttonStart"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="#F8E6BA"
+            android:backgroundTint="#EFCE7C"
+            android:text="Start"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:iconTint="#E14F4F" />
+
+        <Button
+            android:id="@+id/buttonUndo"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="#F8E6BA"
+            android:backgroundTint="#EFCE7C"
+            android:text="Undo"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:iconTint="#E14F4F" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pilesContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="#041C32"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/pilesRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/topLeftContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/upArrowLeft"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/triangle_gris"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/pileTopLeft"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:layout_weight="0"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/topRightContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pileTopRight"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/upArrowRight"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/triangle_gris"
+                    android:gravity="center" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pilesRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/bottomLeftContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/downArrowLeft"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/triangle_gris2"
+                    android:gravity="center" />
+
+                <TextView
+                    android:id="@+id/pileBottomLeft"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/bottomRightContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/pileBottomRight"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/downArrowRight"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/triangle_gris2"
+                    android:gravity="center" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.1"
+        android:background="#041C32"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/mainRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/carte1Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte1"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte2Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte2"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte3Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte3"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte4Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte4"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mainRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/carte5Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte5"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte6Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte6"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte7Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte7"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/carte8Container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/carte8"
+                    android:layout_width="70dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/rectangle_gris"
+                    android:gravity="center"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
